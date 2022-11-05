@@ -50,10 +50,10 @@ int main ()
  }
  cout <<"\n";
 
-//  bubbleSort(arr,size);
-//  for(int x : arr){
-//     cout << x << " ";
-//  }
+ bubbleSort(arr,size);
+ for(int x : arr){
+    cout << x << " ";
+ }
 
  return 0;
 }
