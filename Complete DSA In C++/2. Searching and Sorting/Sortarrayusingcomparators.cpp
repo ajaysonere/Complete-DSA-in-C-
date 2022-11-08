@@ -16,7 +16,7 @@ void sortWithComparators(vector<int> &vec, bool flag){
         }
     }
     else{
-        reverse(vec.begin(),vec.end());
+        sort(vec.begin(),vec.end(),greater<int>());
     }
 }
 
@@ -35,7 +35,7 @@ int main ()
  for(int x:vec){
    cout << x << " ";
  }
- cout << "Enter the True or flase value " << "\n";
+ cout << "\n Enter the True or flase value " << "\n";
  bool flag;
  cin >> flag;
  sortWithComparators(vec,flag);
