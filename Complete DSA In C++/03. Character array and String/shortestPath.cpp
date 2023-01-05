@@ -29,31 +29,29 @@ int main ()
         cout << 'N';
     }
  }
-//  else if (x <= 0 and y >= 0){
-//     while(x--){
-//         cout << 'W' ;
-//     }
-//     while(y--){
-//         cout << 'N';
-//     }
-//  }
-
-//  else if (x <= 0 and y <= 0){
-//     while(x--){
-//         cout << 'W' ;
-//     }
-//     while(y--){
-//         cout << 'S';
-//     }
-//  }
-
-//  else if(x>=0 and y <= 0){
-//     while(x--){
-//         cout << 'E' ;
-//     }
-//     while(y--){
-//         cout << 'S';
-//     }
-//  }
+ else if(x<0 && y>=0){
+    while(x++){
+        cout << "W";
+    }
+    while(y--){
+        cout << "N";
+    }
+ }
+ else if(x<0 && y<0){
+    while(x++){
+        cout << "W" ;
+    }
+    while(y++){
+        cout << "S";
+    }
+ }
+ else {
+    while(x--){
+      cout << "E";
+    }
+    while(y++){
+        cout<<"S";
+    }
+ }
  return 0;
 }
