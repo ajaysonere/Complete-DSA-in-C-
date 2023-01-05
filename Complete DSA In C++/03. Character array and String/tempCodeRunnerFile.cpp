@@ -1,0 +1,1 @@
+ strcpy(b,strcat(web,domain));
