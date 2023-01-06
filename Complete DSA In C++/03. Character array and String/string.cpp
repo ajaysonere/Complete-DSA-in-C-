@@ -42,10 +42,31 @@ string str3 =  str.substr(0,5);
 cout << str3 << "\n";
 
 // swap the two string with each other
-cout << "str1 is " << str2 << "\n";
-cout << "str2 is " << str3 << "\n";
-str2.swap(str3);
-cout << "str1 is " << str2 << "\n";
-cout << "str2 is " << str3 << "\n";
+// cout << "str1 is " << str2 << "\n";
+// cout << "str2 is " << str3 << "\n";
+// str2.swap(str3);
+// cout << "str1 is " << str2 << "\n";
+// cout << "str2 is " << str3 << "\n";
+
+ for(char ch :str){
+   cout << ch << " " ;
+ }
+ cout << "\n";
+
+// getline(cin,str,'.');
+
+ vector <string> vec;
+
+ for(int i=0;i<5;i++){
+   string temp;
+   getline(cin,temp);
+   vec.push_back(temp);
+ } 
+ 
+ cout << "String " << "\n";
+ for(string x :vec){
+   cout << x << "\n";
+ }
+
  return 0;
 }
