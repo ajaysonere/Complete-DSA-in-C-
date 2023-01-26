@@ -1,51 +1,63 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
+int main()
+{
 
-    cout << "Enter the Number of Rows  and Columns " << "\n";
-    int row , col;
+    cout << "Enter the Number of Rows  and Columns "
+         << "\n";
+    int row, col;
     cin >> row >> col;
     int arr[row][col];
-    for(int i=0;i<row;i++){
-        for(int j=0;j<col;j++){
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
             cin >> arr[i][j];
         }
     }
 
-    cout <<" Output is :" << "\n";
+    cout << " Output is :"
+         << "\n";
 
-    // Print Start to End 
+    // Printing the wave element form start to end
+    // for (int i = 0; i < col; i++)
+    // {
+    //     if (i & 1)
+    //     {
+    //         for (int j = row - 1; j >= 0; j--)
+    //         {
+    //             cout << arr[j][i] << " ";
+    //         }
+    //     }
+    //     else
+    //     {
+    //         for (int j = 0; j < row; j++)
+    //         {
+    //             cout << arr[j][i] << " ";
+    //         }
+    //     }
+    // }
+    // cout << "\n";
+    // printing the wave element form end to start
     
-    //  int end = col;
-    //  int endCol = col-1;
-    //  while(start <= endCol)
-    //  int index = 0;
-    //  for(index; index<col; index++){
-    //     cout << arr[index][endCol] << " ";
-    //  }
-    //  index = index-1;
-    //  endCol = endCol-1;
-    //  for(index; index >=0;index--){
-    //     cout << arr[index][endCol] << " ";
-    //  }
-    //  index +=1;
-    //  endCol = endCol-1;
-    //  for(index;index<col;index++){
-    //     cout << arr[index][endCol] << " ";
-    //  }
-
-    //  index = index-1;
-    //  endCol = endCol-1;
-    //  for(index;index >=0;index--){
-    //     cout << arr[index][endCol] << " ";
-    //  }
-
-    //  cout << "\n";
-
-
-
-
+    for (int i = col - 1; i >= 0; i--)
+    {
+        if (i & 1)
+        {
+            for (int j = row - 1; j >= 0; j--)
+            {
+                cout << arr[j][i] << " ";
+            }
+        }
+        else
+        {
+            for (int j = 0; j < row; j++)
+            {
+                cout << arr[j][i] << " ";
+            }
+        }
+    }
 
     // int i=0;
     // for(i;i<4;i++){
@@ -67,7 +79,6 @@ int main(){
     // // cout << "\n";
 
     // cout << "\n";
-
 
     return 0;
 }
