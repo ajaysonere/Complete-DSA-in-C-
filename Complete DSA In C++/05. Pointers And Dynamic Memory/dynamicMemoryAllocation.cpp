@@ -12,7 +12,7 @@ int main ()
 
     // taking input 
     for(int i=0;i<size;i++){
-         cin >> arr[i]; 
+         cin >> *(arr+i); 
     }
 
     // print the array
