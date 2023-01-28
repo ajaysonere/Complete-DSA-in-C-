@@ -13,5 +13,16 @@ int main ()
 
     int ** yptr = &ptr;
     cout << " Address of yptr " << &yptr << "\n";
+    int x = 10;
+    int *ptr = &x;
+
+    *ptr = *ptr+1 ;
+    cout << x << "\n" << *ptr ;
+    int *pointer {};  // initialize by null pointer 
+    cout << pointer << "\n";
+
+    int x{};
+    cout << x << "\n";
+
     return 0;
 }
