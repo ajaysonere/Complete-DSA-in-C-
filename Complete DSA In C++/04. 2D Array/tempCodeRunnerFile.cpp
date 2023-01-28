@@ -1,4 +1,6 @@
-
-    // for(i;i<4;i++){
-    //     cout<< arr[i][3] << " ";
+ // for(int i=0;i<rows;i++){
+    //     arr[i] = new int[cols];
+    //     for(int j=0;j<cols;j++){
+    //         cin>> arr[i][j];
+    //     }
     // }
