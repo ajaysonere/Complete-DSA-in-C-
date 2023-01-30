@@ -9,6 +9,17 @@ void transposeMatrix (vector<vector<int>> &mat){
             swap(mat[row][col], mat[col][row]);
         }
     }
+    int start =0;
+    int end = mat.size()-1;
+    for(int i=0;i<(mat.size()/2);i++){
+        for(int j=0;j<mat[i].size();j++){
+            int temp = mat[j][start];
+            mat[j][start] = mat[j][end];
+            mat[j][end] = temp;
+        }
+        start++;
+        end--;
+    }
 }
 int main ()
 {
