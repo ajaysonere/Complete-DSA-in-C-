@@ -14,7 +14,9 @@ int main ()
     // cout << (~452) << "\n";
 
     cout << " LEFT " << (b<<3) << "\n";
-    cout << "RIGHT " << (b>>2) << "\n";
+    cout << " RIGHT " << (b>>2) << "\n";
+
+    cout << " NOT " << (~-5) << "\n";
     
     
     
