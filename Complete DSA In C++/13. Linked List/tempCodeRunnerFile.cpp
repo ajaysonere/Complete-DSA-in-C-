@@ -1,4 +1,4 @@
-if(temp->next == NULL){
-        insertAtLast(tail,value);
-        return;
-    }
+ // if(curr->next == NULL){
+    //     tail = prev;
+    //     return ;
+    // }
