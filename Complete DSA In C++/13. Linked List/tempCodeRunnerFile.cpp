@@ -1,4 +1,2 @@
- // if(curr->next == NULL){
-    //     tail = prev;
-    //     return ;
-    // }
+deleteNode(tail ,3);
+    // printList(tail);
