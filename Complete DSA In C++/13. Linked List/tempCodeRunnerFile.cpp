@@ -1,2 +1,2 @@
-insertAtTail(head, tail, 5);
-    print(head);
+deleteNode(tail ,3);
+    // printList(tail);

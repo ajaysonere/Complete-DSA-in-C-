@@ -56,7 +56,7 @@ void deleteNode(Node* &tail , int value){
         // for 1 node
         if(curr == prev){
             tail = NULL;
-            cout << "Reurn"<< "\n";
+            // cout << "Reurn"<< "\n";
             return ;
         }
 
@@ -93,8 +93,8 @@ int main ()
     insertNode(tail,5,3);
     printList(tail);
 
-    // insertNode(tail,3, 5);
-    // printList(tail);
+    insertNode(tail,3, 5);
+    printList(tail);
 
     // insertNode(tail ,5,4);
     // printList(tail);
@@ -108,8 +108,8 @@ int main ()
     // insertNode(tail, 6, 13);
     // printList(tail);
 
-    deleteNode(tail ,3);
-    printList(tail);
+    // deleteNode(tail ,3);
+    // printList(tail);
     // cout << "tail is pointed to " << tail->data << "\n";
     return 0;
 }
