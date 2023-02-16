@@ -1,4 +1,5 @@
-
+#include<iostream>
+using namespace std;
 class List;
 
 class Node{
@@ -11,6 +12,12 @@ class Node{
     //     return data;
     //  }
     // friend class List;
+    ~Node(){
+        if(next != NULL){
+            delete next;
+        }
+        cout << "realising the memory for the " << data << "\n" ;
+    }
 };
 
 class List{
@@ -32,6 +39,7 @@ class List{
     }
 
     public:
+
     List():head(NULL),tail(NULL){}
     void push_front(int data);
     void push_back(int data);
@@ -40,6 +48,12 @@ class List{
     int recursiveSearch(int key);
     Node* begin(){
        return head;
+    }
+    ~List(){
+        if(head != NULL){
+            delete head;
+            head = NULL;
+        }
     }
 };
 
@@ -102,6 +116,6 @@ int List::search(int key){
 }
 
 int List:: recursiveSearch(int key){
-     int index = searchHelper(head,key);
-     return index;
+    int index = searchHelper(head,key);
+    return index;
 }
