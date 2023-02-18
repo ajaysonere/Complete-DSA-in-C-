@@ -28,9 +28,9 @@ void insertAtHead(Node* &head, int data){
 void reverseLinkedList(Node* &head){
     Node* curr = head;
     Node* prev = NULL;
-    Node* temp;
+    // Node* temp;
     while(curr != NULL){
-        temp = curr->next;
+         Node* temp = curr->next;
         curr->next = prev;
         prev = curr;
         curr = temp;
@@ -64,8 +64,12 @@ int main ()
     // print(head);
 
     insertAtHead(head,50);
+
+    insertAtHead(head,60);
     print(head);
+
     reverseLinkedList(head);
+
     print(head);
     return 0;
 }
