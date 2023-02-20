@@ -105,7 +105,7 @@ void deleteNodeAtGivenPos(Node *&head, Node *&tail, int pos)
 
        if(curr->next == NULL){
           prev->next = NULL;
-          curr->next = NULL;
+          curr->prev = NULL;
           tail = prev;
           delete curr;
           return;
