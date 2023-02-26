@@ -1,2 +1,2 @@
-insertAtTail(head, tail, 20);
-    insertAtTail(head, tail, 50);
+ // print(left);
+    // print(right);
