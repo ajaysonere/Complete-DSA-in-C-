@@ -1,2 +1,2 @@
-insertAtHead(head, 'b');
-    // insertAtHead(head, 'a');
+insertAtTail(head, tail, 20);
+    insertAtTail(head, tail, 50);
