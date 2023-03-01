@@ -1,5 +1,5 @@
 #include<iostream>
-#include "Stack.h" 
+#include "Stack.h"
 using namespace std;
 
 int main ()
@@ -11,7 +11,7 @@ int main ()
     s.push('l');
     s.push('o');
 
-    while(){
+    while(s.isEmpty() != true ){
         cout << s.top() << "\n";
         s.pop();
     }

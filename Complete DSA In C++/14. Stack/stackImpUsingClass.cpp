@@ -3,12 +3,14 @@ using namespace std;
 
 class Stack{
     
-    // data memebers 
-    public:
+    // data memebers
     int *arr;
     int top;
     int data;
     int size;
+
+public:
+   
 
     // member Functions 
     Stack(int size){
