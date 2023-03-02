@@ -10,11 +10,14 @@ class Node{
         this->data = data;
         this->next = NULL;
     }
-    ~Node(){
-        if(next == NULL){
+    ~Node()
+    {
+        if (next == NULL)
+        {
             delete next;
             next = NULL;
         }
+        // cout << "data is deleted " << data << "\n";
     }
 };
 
@@ -25,32 +28,37 @@ class Stack{
         head == NULL;
     }
     // push an element to the stack
-    void push(int data){
+    void push(int data)
+    {
         Node* temp = new Node(data);
-        head->next = temp;
+        temp->next = head;
         head = temp;
     }
 
-    void pop(){
-        if(head == NULL){
-            cout << "stack is underflow " << "\n";
-        }else{
+    void pop()
+    {
+        if (head != NULL)
+        {
             Node* temp = head;
             head = head->next;
             delete temp;
         }
+        else
+        {
+            return;
+        }
     }
 
     bool empty(){
-        return head == NULL;
+        return (head == NULL);
     }
 
-    int top(){
-        if(head== NULL){
-            cout << "stack is underflow " << "\n";
-        }else{
+    int top()
+    {
+        if (head == NULL)
+            return -1;
+        else
             return head->data;
-        }
     }
 };
 
@@ -62,10 +70,10 @@ int main ()
     s.push(30);
     s.push(40);
 
-     cout << s.top() << "\n";
-    // while(!s.empty()){
-    //     cout << s.top() << "\n";
-    //     s.pop();
-    // }
+    //  cout << s.top() << "\n";
+    while(!s.empty()){
+        cout << s.top() << "\n";
+        s.pop();
+    }
     return 0;
 }
