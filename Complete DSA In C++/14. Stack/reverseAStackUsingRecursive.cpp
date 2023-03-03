@@ -21,8 +21,8 @@ class Node{
 };
 
 class Stack{
-    Node* head;
     public:
+    Node* head;
     Stack(){
         head = NULL;
     }
@@ -61,17 +61,55 @@ class Stack{
 
 };
 
+// time complexity is O(1) ans spce complexity is O(n);
+// void reverseStack(Stack s, Stack &ans)
+// {
+//     if (s.isEmpty() == true)
+//     {
+//         return;
+//     }
+//     ans.push(s.peek());
+//     s.pop();
+//     reverseStack(s, ans);
+// }
+
+
+// time complexity is O(1) ans space complexity is O(1)
+void insertAtBottom(Stack &s , int element){
+    if(s.isEmpty()){
+        s.push(element);
+        return;
+    }
+    int temp = s.peek();
+    s.pop();
+    insertAtBottom(s,element);
+    s.push(temp);
+}
+
+void reverseStack(Stack &s){
+    if(s.isEmpty()){
+        return ;
+    }
+    int temp = s.peek();
+    s.pop();
+    reverseStack(s);
+    insertAtBottom(s,temp);
+}
+
 int main ()
 {
-    Stack s;
+    Stack s ;
     s.push(10);
     s.push(20);
     s.push(30);
     s.push(40);
-    
+  
+    reverseStack(s);
+
     while(!s.isEmpty()){
         cout << s.peek() << " ";
         s.pop();
     }
+
     return 0;
 }
