@@ -61,6 +61,29 @@ class Stack{
 
 };
 
+// void insertAtBottom(int element , stack<int> &s){
+//     if(s.empty()){
+//         s.push(element);
+//         return ;
+//     }
+//     int temp = s.top();
+//     s.pop();
+//     insertAtBottom(element ,s);
+//     s.push(temp);
+// }
+
+// void reverseNumber(stack<int> &a){
+//     if(a.empty()){
+//         return ;
+//     }
+//     int temp = a.top();
+//     a.pop();
+//     reverseNumber(a);
+//     insertAtBottom(temp , a);
+//     // cout << temp << " ";
+//     // a.push(temp);
+// }
+
 // time complexity is O(1) ans spce complexity is O(n);
 // void reverseStack(Stack s, Stack &ans)
 // {
