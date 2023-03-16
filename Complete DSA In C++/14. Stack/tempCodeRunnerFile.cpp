@@ -1,4 +1,3 @@
-while(!s.empty()){
-    //     cout << s.top() << " ";
-    //     s.pop();
-    // }
+if(!flag){
+        //     ans.push_back(-1);
+        // }
