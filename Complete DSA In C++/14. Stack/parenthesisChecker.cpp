@@ -2,17 +2,42 @@
 #include<stack>
 using namespace std;
 
+bool isOpening(char str){
+    if(str == '(' || str == '[' || str == '{'){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool isClosing(char str, stack<char> s){
+    if(s.empty()){
+        return false;
+    }
+    if(s.top() == '{' && str == '}' || s.top() == '(' && str == ')'  || s.top() == '[' && str == ']'){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 bool validParenthesis(string str){
-    stack<int> s;
-    for(int i=0; i<s.size();i++){
-        if(isOpening(s[i])){
-            s.push(s[i]);
+    stack<char> s;
+    for(int i=0; i<str.size();i++){
+        if(isOpening(char(str[i]))){
+            s.push(char(str[i]));
         }else{
-            if(isClosing(s[i])){
-                
+            if (isClosing(char(str[i]), s))
+            {
+                s.pop();
+            }
+            else
+            {
+                return false;
             }
         }
     }
+    return s.empty();
 }
 
 int main(){
