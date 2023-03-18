@@ -7,7 +7,7 @@ using namespace std;
 vector<int> nextSmallerElementFromLeft(vector<int> v){
     vector<int> left;
     stack<pair<int,int>> s;
-    int psuadoIndex = -1;
+    int psuadoIndex = -1 ;
     for(int i=0; i<v.size(); i++){
         if(s.empty()){
             left.push_back(psuadoIndex);
@@ -18,7 +18,7 @@ vector<int> nextSmallerElementFromLeft(vector<int> v){
                 s.pop();
             }
             if(s.empty()){
-                left.push_back(-1);
+                left.push_back(0);
             }else{
                 left.push_back(s.top().second);
             }
@@ -31,7 +31,7 @@ vector<int> nextSmallerElementFromLeft(vector<int> v){
 vector<int> nextSmallerElementFromRight(vector <int> v){
     vector<int> right;
     stack<pair<int,int>> s;
-    int psuadoIndex = -1;
+    int psuadoIndex = v.size()+1;
     for(int i=v.size()-1; i>=0; i--){
         if(s.empty()){
            right.push_back(psuadoIndex);
@@ -42,7 +42,7 @@ vector<int> nextSmallerElementFromRight(vector <int> v){
                s.pop();
             }
             if(s.empty()){
-               right.push_back(-1);
+               right.push_back(psuadoIndex);
             }else{
                 right.push_back(s.top().second);
             }
