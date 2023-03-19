@@ -72,6 +72,10 @@ class queue{
     }
 
     void print(){
+        if(head == NULL){
+            cout << "Queue has nothing to print \n";
+            return;
+        }
         Node *temp = head;
         while(temp){
             cout << temp->data << " ";
@@ -98,9 +102,16 @@ int main ()
     q.push(60);
     cout << "after pop first element " << "\n";
     q.pop();
+    q.push(71);
+    q.pop();
+    q.pop();
+    // q.pop();
+    // q.pop();
+    // q.pop();
     q.print();
     cout << "size of the " << q.size() << "\n";
     cout << q.front() << " " << q.back() << "\n";
+    q.empty()?cout << "Queue is empty \n":cout<< "Queue is not Empty \n";
 
     return 0;
 }
