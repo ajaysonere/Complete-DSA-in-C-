@@ -108,8 +108,10 @@ bool dequeue::empty(){
 }
 
 void dequeue::display(){
-    for(int i=0; i<capacity; i++){
-        cout << arr[i] << " ";
+    
+    while(!empty()){
+        cout << get_front() << " ";
+        pop_front();
     }
     cout << "\n";
 }
@@ -122,8 +124,8 @@ int main ()
     d.push_back(15);
     d.push_back(25);
     d.push_back(30);
-    // here we can do front we ones beacuse
-    // d.push_front(5);
+    d.push_front(5);
+    d.push_front(2);
     d.display();
     return 0;
 }
