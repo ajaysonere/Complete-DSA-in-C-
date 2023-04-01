@@ -58,6 +58,33 @@ void levelOrderTraversal(Node* root){
     }
 }
 
+void inOrder(Node* root){
+    if(root == NULL){
+        return ;
+    }
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
+}
+
+void preOrder(Node *root){
+    if(root == NULL){
+        return ;
+    }
+    cout << root->data << " ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+void postOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout << root->data << " ";
+}
+
 int main ()
 {
 //  cout << "Binary Tree";
@@ -67,5 +94,12 @@ int main ()
 
     root = buildTree(root);
     levelOrderTraversal(root);
+    cout << "Inorder Traversal \n";
+    inOrder(root);
+    cout << "\nPreOrder Traversal \n";
+    preOrder(root);
+    cout << "\nPostOrder Traversal \n";
+    postOrder(root);
+
     return 0;
 }
