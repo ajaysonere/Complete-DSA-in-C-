@@ -35,16 +35,25 @@ Node* buildTree(Node* root){
 void levelOrderTraversal(Node* root){
     queue<Node*> q;
     q.push(root);
-    
+    q.push(NULL);
+
     while(!q.empty()){
         Node* temp = q.front();
-        cout << temp->data << " ";
         q.pop();
-        if(temp->left){
-            q.push(temp->left);
-        }
-        if(temp->right){
-            q.push(temp->right);
+
+        if(temp == NULL){
+            cout << endl;
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }else{
+            cout << temp->data << " ";
+            if (temp->left){
+                q.push(temp->left);
+            }
+            if (temp->right){
+                q.push(temp->right);
+            }
         }
     }
 }
@@ -52,7 +61,8 @@ void levelOrderTraversal(Node* root){
 int main ()
 {
 //  cout << "Binary Tree";
-//  input data - > 10 11 12 14 -1 -1 -1 13 -1 -1 9 8 -1 -1 6 -1 -1 
+//  input data - > 10 11 12 14 -1 -1 -1 13 -1 -1 9 8 -1 -1 6 -1 -1
+//  10 20 15 11 -1 -1 -1 18 -1 -1 30 35 60 -1 -1 65 -1 -1 40 37 -1 -1 -1  
     Node* root = NULL;
 
     root = buildTree(root);
