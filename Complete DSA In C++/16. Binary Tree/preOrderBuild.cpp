@@ -37,10 +37,20 @@ void preOrder(Node* root){
     preOrder(root->right);
 }
 
+int height(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+    int leftSubtreeHeight = height(root->left);
+    int rightSubtreeHeight = height(root->right);
+    return 1+max(leftSubtreeHeight , rightSubtreeHeight);
+}
 
 int main ()
 {
     Node* root = buildTree();
     preOrder(root);
+    cout << "\n";
+    cout <<"Height of tree is " << height(root) << "\n";
     return 0;
 }
