@@ -42,6 +42,7 @@ void printPostOrder(Node* root){
     cout << root->data << " ";
 }
 
+// This is solution using the 2 stack 
 void printPostOrderIterative(Node* root){
     if(root == NULL){
         return;
