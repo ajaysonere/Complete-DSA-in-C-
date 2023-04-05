@@ -66,12 +66,45 @@ void printPostOrderIterative(Node* root){
     }
 }
 
+
+void printPostOrderUsingOneStack(Node* root){
+    if(root == NULL){
+        return ;
+    }
+    stack<Node*> s;
+    Node* curr = root;
+    while(curr != NULL || !s.empty()){
+        if(curr != NULL){
+            s.push(curr);
+            curr = curr->left;
+        }else{
+            root = s.top()->right;
+            if(root == NULL){
+                root = s.top();
+                s.pop();
+                cout << root->data << " ";
+                while(!s.empty() && root == s.top()->right){
+                    root = s.top();
+                    s.pop();
+                    cout<< root->data<< " ";
+                }
+            }else{
+                curr = root;
+            }
+        }  
+    }
+}
+
+
 int main ()
 {
     Node* root = buildTree();
     cout << "Post Order Traversal Using The Recursion " << "\n";
     printPostOrder(root);
-    cout << "\nPost Order Traversal Using The Iteration " << "\n";
+    cout << "\nPost Order Traversal Using The Iteration Using 2 Stack " << "\n";
     printPostOrderIterative(root);
+    cout << "\nPost Order Traversal Using the Iteration Using 1 Stack  "<< "\n";
+    printPostOrderUsingOneStack(root);
+
     return 0;
 }
