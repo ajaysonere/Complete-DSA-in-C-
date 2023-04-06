@@ -40,7 +40,19 @@ void printTree(Node* root){
     printTree(root->right);
 }
 
-bool isSymmetric(Node* root);{
+bool symmetricHelp(Node* left , Node* right){
+    if(left == NULL || right == NULL){
+         return (left == right);
+    }
+
+    if(left->data != right->data){
+        return false;
+    }
+
+    return symmetricHelp(left->left , right->right )&& symmetricHelp(left->right , right->left);
+}
+
+bool isSymmetric(Node* root){
      return root == NULL || symmetricHelp(root->left , root->right);
 }
 
@@ -51,6 +63,6 @@ int main ()
     Node* root = BuildTree();
     cout << "Pre Order Traversal " << "\n";
     printTree(root);
-    isSymmetric(root)?cout << "Tree is Symmetric \n" : cout << "Tree is not Symmetric \n";
+    isSymmetric(root)?cout << "\nTree is Symmetric \n" : cout << "\nTree is not Symmetric \n";
     return 0;
 }
