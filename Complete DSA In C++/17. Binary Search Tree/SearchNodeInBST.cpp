@@ -65,7 +65,19 @@ bool searchInBSTUsingRec(Node* root , int key){
 }
 
 bool searchInBSTUsingIterative(Node* root , int key){
-    
+    if(root->data == key){
+        return false;
+    }
+    while(root != NULL){
+        if(key == root->data)
+            return true;
+        if(root == NULL)
+           return false;
+        if(key > root->data)
+           root = root->right;
+        else
+           root = root->left;
+    }
 }
 
 int main ()
@@ -77,9 +89,12 @@ int main ()
     cout << "\nEnter the key \n";
     int key;
     cin >> key;
-    if(searchInBSTUsingRec(root ,key)){
+    if (searchInBSTUsingIterative(root, key))
+    {
         cout << "Key is present " << "\n";
-    }else{
+    }
+    else
+    {
         cout <<"Key is not present " << "\n";
     }
     return 0;
