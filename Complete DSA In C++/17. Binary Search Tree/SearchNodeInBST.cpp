@@ -65,19 +65,16 @@ bool searchInBSTUsingRec(Node* root , int key){
 }
 
 bool searchInBSTUsingIterative(Node* root , int key){
-    if(root->data == key){
-        return false;
-    }
+    
     while(root != NULL){
         if(key == root->data)
             return true;
-        if(root == NULL)
-           return false;
         if(key > root->data)
            root = root->right;
         else
            root = root->left;
     }
+    return false;
 }
 
 int main ()
