@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 using namespace std;
 
@@ -61,15 +61,33 @@ void printInOrder(Node *root)
 }
 
 
+// it will take O(N) time and O(1) space 
+bool BSTHelper(Node* root, int minVal , int maxVal){
+    if(root == NULL){
+        return true;
+    }
+    if(root->data >= maxVal || root->data <= minVal){
+        return false;
+    }
+    return BSTHelper(root->left , minVal , root->data) && BSTHelper(root->right , root->data , maxVal);
+}
+
+bool isBST(Node* root){
+    return BSTHelper(root ,INT_MIN,INT_MAX);
+}
+
+
 int main()
 {
     Node *root = takingInput();
     cout << "INORDER OF BST "<< "\n";
     printInOrder(root);
-    if (toSumInBST(root, target)){
-        cout << "Sum is Found in BST " << "\n";
+    cout << "\n";
+    if (isBST(root)){
+        cout << "It's valide BST " << "\n";
     }else{
-        cout << "Sum is not Found In BST " << "\n";
+        cout << "IT's Not valide BST " << "\n";
     }
+
     return 0;
 }
