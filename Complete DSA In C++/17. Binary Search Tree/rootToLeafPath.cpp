@@ -38,6 +38,24 @@ void printInOrder(Node *root)
     printInOrder(root->right);
 }
 
+void rootToLeaf(Node* root , vector<int> &ans){
+    if(root == NULL){
+        return ;
+    }
+    if(root->left == NULL && root->right == NULL){
+        for(int x : ans){
+            cout << x << " ";
+        }
+        cout << root->data << "\n";
+        return ;
+    }
+    ans.push_back(root->data);
+    rootToLeaf(root->left , ans);
+    rootToLeaf(root->right , ans);
+    ans.pop_back();
+    return ;
+}
+
 
 
 int main()
@@ -50,6 +68,8 @@ int main()
     }
     cout << "In Order in BST "<< "\n";
     printInOrder(root);
-    vec
+    cout << "\nRoot To Leaf \n";
+    vector<int> ans;
+    rootToLeaf(root ,ans);
     return 0;
 }
