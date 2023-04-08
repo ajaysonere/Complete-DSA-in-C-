@@ -49,18 +49,18 @@ void printInOrder(Node* root){
     printInOrder(root->right);
 }
 
-void toSumHelper(Node* root , int sum , vector<int> &inOrderVal){
+void toSumHelper(Node* root ,vector<int> &inOrderVal){
     if(root == NULL){
         return ;
     }
-    toSumHelper(root->left , sum , inOrderVal);
+    toSumHelper(root->left, inOrderVal);
     inOrderVal.push_back(root->data);
-    toSumHelper(root->right , sum , inOrderVal);
+    toSumHelper(root->right, inOrderVal);
 }
 
 bool toSumInBST(Node* root , int target){
     vector<int> inOrderVal;
-    toSumHelper(root , target , inOrderVal);
+    toSumHelper(root , inOrderVal);
     int i=0, j = inOrderVal.size()-1;
     while(i<j){
         int sum = inOrderVal[i]+inOrderVal[j];
