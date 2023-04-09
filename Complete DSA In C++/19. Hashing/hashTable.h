@@ -32,6 +32,7 @@ class HashTable{
     void rehash(){
         Node<T> **oldTable = table;
         int oldTableSize = ts;
+        cs =0;
         ts = 2 * ts + 1;
         table = new Node<T> *[ts];
         // assign the null to all the values
@@ -94,9 +95,23 @@ class HashTable{
             rehash();
         }
     }
+    
+    T* search(string key){
+        int index = hashFun(key);
+        Node<T>* temp = table[index];
+
+        while(temp != NULL){
+            if(temp->key == key){
+                return &temp->value;
+            }
+            temp = temp->next;
+        }
+        return NULL;
+    }
+
     void print(){
         for(int i=0; i<ts; i++){
-            cout << "Row No. -> " << i ;
+            cout << "Row No. -> " << i << " ";
             Node<T>* temp = table[i];
             while(temp != NULL){
                 cout << temp->key << " ";
