@@ -28,8 +28,40 @@ class HashTable{
     Node<T> **table;
     int cs;
     int ts;
-    public:
 
+    void rehash(){
+        Node<T> **oldTable = table;
+        int oldTableSize = ts;
+        ts = 2 * ts + 1;
+        table = new Node<T> *[ts];
+        // assign the null to all the values
+        for (int i = 0; i < ts; i++)
+        {
+            table[i] = NULL;
+        }
+
+        // assign all the values from oldtable to new table
+        for (int i = 0; i < oldTableSize; i++)
+        {
+            Node<T> *temp = oldTable[i];
+
+            while (temp != NULL)
+            {
+                string key = temp->key;
+                T value = temp->value;
+                insert(key, value);
+                temp = temp->next;
+            }
+
+            if (oldTable[i] != NULL)
+            {
+                delete oldTable[i];
+            }
+        }
+        delete[] oldTable;
+    }
+
+    public:
     int hashFun(string key){
         int index = 0;
         int power = 1;
@@ -50,39 +82,16 @@ class HashTable{
         }
     }
 
+
     void insert(string key , T value){
         int index = hashFun(key);
-        Node<T>* n = new Node<T>(index , value);
+        Node<T>* n = new Node<T>(key , value);
         n->next = table[index];
         table[index] = n;
         cs++;
         float loadFactor = cs/float(ts);
         if(loadFactor > 0.7){
-            Node<T>** oldTable = table;
-            int oldTableSize = ts;
-            ts = 2*ts+1;
-            table = new Node<T>*[ts];
-            // assign the null to all the values 
-            for(int i=0; i<ts; i++){
-                table[i] = NULL;
-            }
-
-            // assign all the values from oldtable to new table
-            for(int i=0;i<oldTableSize; i++){
-                Node<T>*temp = oldTable[i];
-
-                while(temp != NULL){
-                    string key = temp->key;
-                    T value = temp->value;
-                    insert(key , value);
-                    temp = temp->next;
-                }
-
-                if(oldTable[i] != NULL){
-                    delete oldTable[i];
-                }
-            }
-            delete []oldTable;
+            rehash();
         }
     }
     void print(){
