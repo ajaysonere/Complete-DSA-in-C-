@@ -3,6 +3,6 @@ using namespace std;
 
 int main ()
 {
- cout << "Hashing";
-return 0;
+    // cout << "Hashing";
+    return 0;
 }
