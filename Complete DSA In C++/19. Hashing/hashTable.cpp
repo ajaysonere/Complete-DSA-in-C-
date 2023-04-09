@@ -30,5 +30,10 @@ int main (){
     cin >> delKey;
     h.erase(delKey);
     h.print();
+
+    h["Tangelo"] = 500;
+    cout << "New Fruit is " << "Tangelo " << h["Tangelo"] << "\n";
+    h["Tangelo"] -= 300;
+    cout << "New Fruit is " << h["Tangelo"] << "\n";
     return 0;
 }

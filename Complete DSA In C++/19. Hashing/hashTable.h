@@ -109,10 +109,23 @@ class HashTable{
         return NULL;
     }
 
+    T& operator[](string key){
+        T* valueFound = search(key);
+        if (valueFound == NULL){
+            T object;
+            insert(key , object);
+            valueFound = search(key);
+        }
+        return *valueFound;
+    }
+
     void erase(string key){
         int index = hashFun(key);
         Node<T> * temp = table[index];
         // when key is present at first index 
+        if(table[index] == NULL){
+            return ;
+        }
         Node<T>* prev = NULL;
         if(temp->key == key){
             prev = temp;
