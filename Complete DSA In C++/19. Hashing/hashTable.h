@@ -109,6 +109,33 @@ class HashTable{
         return NULL;
     }
 
+    void erase(string key){
+        int index = hashFun(key);
+        Node<T> * temp = table[index];
+        // when key is present at first index 
+        Node<T>* prev = NULL;
+        if(temp->key == key){
+            prev = temp;
+            temp = temp->next;
+            prev->next = NULL;
+            table[index] = temp;
+            delete prev;
+        }else{
+            while(temp->key != key){
+                prev = temp;
+                temp = temp->next;
+            }            
+            if(temp->next == NULL){
+                table[index] = NULL;
+                delete temp;
+            }
+
+            prev->next = temp->next;
+            temp->next = NULL;
+            delete temp;
+        }     
+    }
+
     void print(){
         for(int i=0; i<ts; i++){
             cout << "Row No. -> " << i << " ";
