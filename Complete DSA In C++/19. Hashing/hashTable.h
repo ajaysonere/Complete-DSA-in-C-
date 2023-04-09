@@ -1,8 +1,7 @@
 // implementing the hash table
-#include<string>
 #include<iostream>
+#include<string>
 using namespace std;
-
 
 template<typename T>
 class Node{
@@ -12,7 +11,7 @@ class Node{
     string key;
 
     Node(string key , T value){
-        this->key = key;
+        this->key = key ;
         this->value = value;
         this->next = NULL;
     }
@@ -34,9 +33,10 @@ class HashTable{
     int hashFun(string key){
         int index = 0;
         int power = 1;
-        for(int i=0; i<key.size();i++){
-            index = (index + key[i]*power)%ts;
-            power = (power*29)%ts;
+         
+        for(auto ch :key){
+            index = (index + ch * power) % ts;
+            power = (power * 29) % ts;
         }
         return index;
     }
@@ -52,7 +52,7 @@ class HashTable{
 
     void insert(string key , T value){
         int index = hashFun(key);
-        Node<T>* n = new Node<T>(index);
+        Node<T>* n = new Node<T>(index , value);
         n->next = table[index];
         table[index] = n;
         cs++;
@@ -88,11 +88,12 @@ class HashTable{
     void print(){
         for(int i=0; i<ts; i++){
             cout << "Row No. -> " << i ;
-            Node* temp = table[i];
+            Node<T>* temp = table[i];
             while(temp != NULL){
                 cout << temp->key << " ";
                 temp = temp->next;
             }
             cout << "\n";
         }
+    }
 };
