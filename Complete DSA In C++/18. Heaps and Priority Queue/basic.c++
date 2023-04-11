@@ -26,6 +26,34 @@ class Heap{
         }
     }
 
+    void deleteFromHeap(){
+        // if array is empty
+        if(size == 0){
+           cout << "Nothing to delete " << "\n";
+           return ;
+       }
+        // put the last element to the first / root element and decrease the size 
+        arr[1] = arr[size];
+        size--;
+
+        // put all the element to the right place
+        int index = 1;
+        while(index < size){
+            int leftChild = 2*index;
+            int rightChild = 2*index+1;
+            
+            if(leftChild < size && arr[index] < arr[leftChild]){
+                swap(arr[index] , arr[leftChild]);
+                index = leftChild;
+            }else if(rightChild < size && arr[index] < arr[rightChild]){
+                swap(arr[index] , arr[rightChild]);
+                index = rightChild;
+            }else{
+                return;
+            }
+        }
+    }
+
     void print(){
         for(int i=1; i<= size; i++){
             cout << arr[i] << " ";
@@ -42,6 +70,9 @@ int main ()
     h.insert(30);
     h.insert(40);
     h.insert(50);
+    h.print();
+    cout << "\n";
+    h.deleteFromHeap();
     h.print();
     return 0;
 }
