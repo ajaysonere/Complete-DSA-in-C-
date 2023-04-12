@@ -39,7 +39,7 @@ class Heap{
         int index = 1;
         while(index < size){
             int leftChild = 2*index;
-            int rightChild = 2*index;
+            int rightChild = 2*index+1;
 
             if(leftChild < size && arr[index] < arr[leftChild]){
                  swap(arr[leftChild] , arr[index]);
