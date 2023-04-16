@@ -105,7 +105,7 @@ void heapSort(int arr[], int size){
     while(tempSize > 1){
         // swap the root and last element
         swap(arr[tempSize], arr[1]);
-        // decreasing the renge og the array
+        // decreasing the renge of the array
         tempSize--;
         // calling the heapify function for place the element at the right place
         heapify(arr, tempSize, 1);
