@@ -20,8 +20,8 @@ int kthSmallestOpt(int arr[], int size, int k){
         pq.push(arr[i]);
     }
     // now inserting k+1 element in queue when queue top is less than element and pop the top element for maintaing the k size of the array
-    for(int i=k+1; i<size-1; i++){
-        if(pq.top() < arr[i]){
+    for(int i=k; i<size; i++){
+        if(pq.top() > arr[i]){
             pq.pop();
             pq.push(arr[i]);
         }
