@@ -1,6 +1,31 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 using namespace std;
+
+vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+    // your code goes here 
+    vector<int> ans;
+    priority_queue<pair<int,int>> p;
+    
+    for(int i=0; i<mat.size(); i++){
+        int sum = 0;
+        for(int j=0; j<mat[i].size(); i++){
+            sum += mat[i][j];
+        }
+        p.push({sum , i});
+        if(p.size()>k){
+            p.pop();
+        }
+    }
+    
+    while(!p.empty()){
+        ans.push_back(p.top().second);
+        p.pop();
+    }
+    
+    return ans;
+}
 
 int main ()
 {
@@ -26,5 +51,14 @@ int main ()
         }
         cout <<"\n";
     }
+
+    int k;
+    cin >> k;
+
+    vector<int> ans = kWeakestRows(arr,k);
+    for(int i=0; i<ans.size(); i++){
+        cout<< ans[i] << " ";
+    }
+
     return 0;
 }
