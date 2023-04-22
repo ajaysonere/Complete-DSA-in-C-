@@ -1,30 +1,26 @@
 #include<iostream>
 #include<vector>
 #include<queue>
+#include<algorithm>
 using namespace std;
 
 vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
-    // your code goes here 
-    vector<int> ans;
-    priority_queue<pair<int,int>> p;
-    
+    // geting the size of the  
+    int col = mat[0].size();
+    // pushing the last element in matrix it's index of the each row 
     for(int i=0; i<mat.size(); i++){
-        int sum = 0;
-        for(int j=0; j<mat[i].size(); i++){
-            sum += mat[i][j];
-        }
-        p.push({sum , i});
-        if(p.size()>k){
-            p.pop();
-        }
+        mat[i].push_back(i);
     }
-    
-    while(!p.empty()){
-        ans.push_back(p.top().second);
-        p.pop();
+    // sort the matrix for getting the weakest row
+    sort(mat.begin(),mat.end());
+    // inserting all the weakest row in the ans vector
+    vector<int>ans;
+    for(int i=0; i<k;i++){
+        ans.push_back(mat[i][col]);
     }
-    
+
     return ans;
+
 }
 
 int main ()
