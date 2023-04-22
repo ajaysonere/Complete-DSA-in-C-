@@ -3,6 +3,5 @@ using namespace std;
 
 int main ()
 {
- cout << "Trie Data Strcture";
-return 0;
+    return 0;
 }
