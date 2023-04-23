@@ -29,7 +29,18 @@ class Trie{
         }
 
         // assumption , string will be in the Caps
-        
+        int index = str[0] - 'A';
+        TrieNode* child;
+
+        // word is already present
+        if(root->childNode[index] != NULL){
+           child = root->childNode[index];
+        }else{
+            // word is not present
+            child = new TrieNode(str[0]);
+            root->childNode[index] = child;
+        }
+
     }
 
     void insertWord(string str){
