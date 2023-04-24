@@ -21,6 +21,10 @@ class Trie{
 
     TrieNode* root;
 
+    Trie(){
+        root = new TrieNode('\0');
+    }
+
     void insertUtill(TrieNode* root , string str){
         // base condition
         if(str.length() == 0){
@@ -40,16 +44,20 @@ class Trie{
             child = new TrieNode(str[0]);
             root->childNode[index] = child;
         }
-
+        insertUtill(child , str.substr(1));
     }
 
     void insertWord(string str){
         insertUtill(root , str);
     }
 
-}
+};
 
 int main ()
 {
+    Trie *t = new Trie();
+
+    t->insertWord("ABCD");
+
     return 0;
 }
