@@ -8,9 +8,13 @@ int main ()
 
     string arr[] = {"Mango" , "Banana" , "Orange" , "Apple" , "Grapes"};
 
-    for(auto word :cls
-     arr){
+    for(auto word : arr){
         t.insertWord(word);
     } 
+
+    string key;
+    cin >> key;
+
+    cout << "Key is present " << t.searchWord(key) << "\n";
     return 0;
 }
