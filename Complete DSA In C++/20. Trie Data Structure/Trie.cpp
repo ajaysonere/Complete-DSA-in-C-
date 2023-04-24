@@ -51,6 +51,27 @@ class Trie{
         insertUtill(root , str);
     }
 
+    bool searchUtill(TrieNode* root , string str){
+        if(str.length() == 0){
+            return root->isTerminal;
+        }
+
+        int index = str[0] - 'A';
+        TrieNode* child ;
+
+        if(root->childNode[index] != NULL){
+           child = root->childNode[index];
+        }else{
+           return false;
+        }
+
+        return searchUtill(root , str.substr(1));
+    }
+
+    bool searchWord(string str){
+        searchUtill(root , str);
+    }
+
 };
 
 int main ()
@@ -59,5 +80,6 @@ int main ()
 
     t->insertWord("ABCD");
 
+    cout << "Word is present " << t->searchWord("ABD") << "\n";
     return 0;
 }
