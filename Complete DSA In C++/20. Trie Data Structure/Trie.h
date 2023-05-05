@@ -3,7 +3,7 @@
 using namespace std;
 class Node{
     char data;
-    unordered_map<char , Node*>children ;
+    unordered_map<char , Node*>children;
     bool isTerminal;
 
     public:
