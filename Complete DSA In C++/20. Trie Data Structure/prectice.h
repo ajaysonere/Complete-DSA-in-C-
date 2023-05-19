@@ -1,5 +1,6 @@
 #include<unordered_map>
-#include<string>
+#include<string.h>
+using namespace std;
 
 class Node{
     char data;
@@ -15,6 +16,7 @@ class Node{
 
 class Trie{
     Node* root;
+
     public:
 
     Trie(){
@@ -24,20 +26,21 @@ class Trie{
     // for inserting the 
     void insert(string str){
         Node* temp = root;
-        for(char ch : str){
+        for(auto ch : str){
             if(temp->children.count(ch) == 0){
                 Node* n = new Node(ch);
                 temp->children[ch] = n;
             }
+            temp = temp->children[ch];
         }
         temp->isTerminal = true;
     }
 
     //for searching the
-    void search(string str){
+    bool search(string str){
         Node* temp = root;
         for(char ch : str){
-            if(temp->children.count(ch)==0){
+            if(temp->children.count(ch) == 0){
                 return false;
             }
             temp = temp->children[ch];
