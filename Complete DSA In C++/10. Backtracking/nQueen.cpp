@@ -31,8 +31,8 @@ bool canPlace(int board[][20] , int size , int row, int col){
     // for right diagonal checking
     i = row; 
     j = col;
-    
-    while(i >= 0 && j<= col){
+
+    while(i >= 0 && j< size){
         if(board[i][j] == 1){
             return false;
         }

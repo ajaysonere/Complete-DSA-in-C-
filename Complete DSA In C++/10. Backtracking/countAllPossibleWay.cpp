@@ -1,7 +1,37 @@
 #include <iostream>
 using namespace std;
 
-bool
+bool canPlace(int board[][20] , int size, int row, int col){
+    // for column
+    for(int i=0; i<row; i++){
+        if(board[i][col] == 1){
+            return false;
+        }
+    }
+
+    // for left diagonal
+    int i = row;
+    int j = col;
+    while(i >= 0 && j >= 0){
+        if(board[i][j] == 1){
+            return false;
+        }
+        i--;
+        j--;
+    }
+
+    // for right diagonal
+    i = row;
+    j = col;
+    while(i>=0 && j < size){
+       if(board[i][j] == 1){
+         return false;
+       }
+       i--;
+       j++;
+    }
+    return true;
+}
 
 int countAllPosibleWayToPlaceQueen(int board[][20] , int size , int i){
     // base case
