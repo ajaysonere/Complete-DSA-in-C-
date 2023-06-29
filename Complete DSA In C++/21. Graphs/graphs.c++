@@ -1,8 +1,7 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main ()
-{
- cout << "Graphs";
-return 0;
+int main(){
+    cout <<  "Basic of Graph " << "\n";
+    return 0;
 }
