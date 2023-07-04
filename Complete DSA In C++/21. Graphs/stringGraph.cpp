@@ -1,7 +1,58 @@
 #include<iostream>
+#include<list>
+#include<vector>
+#include<unordered_map>
 using namespace std;
 
+class Node{
+    public:
+    string name;
+    list<string> nbrs;
+    
+    Node(string name){
+       this->name = name;
+    }
+};
+
+class Graph{
+    unordered_map<string,Node*> m;
+    public:
+    Graph(vector<string> cities){
+       for(auto city : cities){
+          m[city] = new Node(city);
+       }
+    }
+
+    void addEdge(string x , string y , bool undir = false){
+        m[x]->nbrs.push_back(y);
+
+        if(undir){
+            m[y]->nbrs.push_back(x);
+        }
+    }
+
+    void printGraph(){
+        for(auto cityPair : m){
+           auto city = cityPair.first;
+           Node* temp = cityPair.second;
+           cout << city << " -> ";
+           for(auto it : temp->nbrs){
+              cout << it << " ";
+           }
+           cout << "\n";
+        }
+    }
+};
+
 int main(){
-    cout << "Graph of String " << "\n";
+    // cout << "Graph of String " << "\n";
+    vector<string> cities = {"Delhi", "London", "Paris", "New York"};
+    Graph g(cities);
+    g.addEdge("Delhi" , "London");
+    g.addEdge("New York" , "London");
+    g.addEdge("Delhi" , "Paris");
+    g.addEdge("Paris" , "New York");
+
+    g.printGraph();
     return 0;
 }
