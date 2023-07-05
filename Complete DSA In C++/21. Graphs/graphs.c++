@@ -49,6 +49,22 @@ class Graph{
         }
     }
 
+    void helperDFS(int source , vector<bool>&visited){
+        visited[source] = true;
+        cout << source << " ";
+        for(auto it : l[source]){
+            if(visited[it] == false){
+                helperDFS(it ,visited);
+            }
+        }
+        return;
+    }
+
+    void printDFS(int source){
+        vector<bool> visited(numberOfVertex , false);
+        helperDFS(source , visited);
+    }
+
 };
 
 int main(){
@@ -67,5 +83,7 @@ int main(){
     g.printGraph();
     cout << "This is Breadth First Search \n";
     g.printBFS(1);
+    cout << "\nThis is Depth First Search \n";
+    g.printDFS(1);
     return 0;
 }
